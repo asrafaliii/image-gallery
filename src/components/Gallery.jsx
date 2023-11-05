@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { imageList } from '../constants';
 import Header from './Header';
-import ImageCard from './ImageCard';
+import ImageGrid from './ImageGrid';
 
 function Gallery() {
   const [images, setImages] = useState(imageList());
@@ -36,7 +36,7 @@ function Gallery() {
   return (
     <div>
       <Header selectedImages={selectedImages} handleDelete={handleDelete} />
-      <ImageCard
+      <ImageGrid
         images={images}
         selectedImages={selectedImages}
         handleImageSelect={handleImageSelect}

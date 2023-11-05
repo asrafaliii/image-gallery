@@ -1,47 +1,33 @@
-import React from 'react';
-import ImageItem from './ImageItem';
-import AddImage from './AddImage';
+import React, { useState } from 'react';
 
-function ImageCard({
-  images,
-  selectedImages,
-  handleImageSelect,
-  handleReorder,
-  setIsDeleteButtonVisible,
-  setImages,
-}) {
-  const handleUploadImage = event => {
-    const file = event.target.files[0];
-    if (file) {
-      const newImage = {
-        id: images.length + 1,
-        url: URL.createObjectURL(file),
-        isFeatured: true,
-      };
-      setImages([...images, newImage]);
-    }
+function ImageCard({ image, isSelected, onImageSelect, onReorder }) {
+  const [isHovered, setIsHovered] = useState(false);
+
+  const handleCheckboxChange = () => {
+    onImageSelect(image);
   };
 
   return (
-    <div className="md:grid grid-cols-5 gap-4 md:mx-8">
-      {images.map((image, index) => (
-        <div
-          key={image.id}
-          className={`${
-            index === 0 ? 'md:col-span-2 md:row-span-2' : 'md:col-span-1'
-          }`}
-        >
-          <ImageItem
-            image={image}
-            isSelected={selectedImages.includes(image.id)}
-            onImageSelect={handleImageSelect}
-            onReorder={handleReorder}
-            setIsDeleteButtonVisible={setIsDeleteButtonVisible}
-          />
-        </div>
-      ))}
-
-      <AddImage handleUploadImage={handleUploadImage} />
+    <div
+      className={`relative border-2 border-gray-300 group md:flex items-center justify-center`}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    >
+      <div className="img">
+        <input
+          type="checkbox"
+          className="md:absolute top-2 left-2 z-10 mt-8 ml-5 sm:w-5 sm:h-5"
+          checked={isSelected}
+          onChange={handleCheckboxChange}
+        />
+      </div>
+      <img
+        src={image.url}
+        alt={`img ${image.id}`}
+        className="object-cover	w-full	h-full"
+        draggable="true"
+        onDragStart={e => e.preventDefault()}
+      />
     </div>
   );
 }
