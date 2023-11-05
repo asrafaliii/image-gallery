@@ -45,13 +45,12 @@ function ImageGrid({
   const [parent, enableAnimations] = useAutoAnimate();
 
   return (
-    <div className="md:grid grid-cols-5 gap-4 md:mx-8" ref={parent}>
+    <div className="grid gap-5 grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 px-4  pb-8" ref={parent}>
       {images.map((image, index) => (
         <div
           key={image.id}
-          className={`${
-            index === 0 ? 'md:col-span-2 md:row-span-2' : 'md:col-span-1'
-          }`}
+          className={`${index === 0 ? 'md:col-span-2 sm:-col-span-4  md:row-span-2' : 'md:col-span-1'
+            }`}
         >
           <ImageCard
             image={image}

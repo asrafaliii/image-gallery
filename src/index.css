@@ -1,3 +1,33 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+body {
+  margin: auto;
+  overflow-x: hidden;
+  background-color: #edf2f7;
+  max-width: 1250px;
+  margin: auto;
+}
+
+
+.img {
+  @apply transition-opacity duration-300 opacity-0 group-hover:opacity-100 absolute inset-0 flex items-center justify-center bg-black bg-opacity-50
+}
+
+
+.hovered-overlay {
+  background-color: rgb(3, 3, 3);
+  opacity: 0.5;
+}
+
+.selected-overlay {
+  background-color: rgb(248, 248, 248);
+  opacity: 0.5;
+}

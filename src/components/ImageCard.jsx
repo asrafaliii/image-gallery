@@ -25,9 +25,8 @@ function ImageCard({ image, isSelected, onImageSelect, onReorder, index }) {
   };
   return (
     <div
-      className={`relative border-2 rounded-xl border-gray-300 group md:flex items-center justify-center overflow-hidden cursor-pointer ${
-        index === 0 ? 'h-[25rem]' : 'h-48'
-      }`}
+      className={`relative border-2 rounded-xl border-gray-300 group md:flex flex justify-center overflow-hidden cursor-pointer ${index === 0 ? 'h-[25rem]' : 'h-48'
+        }`}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       draggable="true"
@@ -37,9 +36,8 @@ function ImageCard({ image, isSelected, onImageSelect, onReorder, index }) {
     >
       {(isHovered || isSelected) && (
         <div
-          className={`md:absolute inset-0 ${
-            isSelected ? 'selected-overlay' : isHovered ? 'hovered-overlay' : ''
-          }`}
+          className={`md:absolute inset-0 ${isSelected ? 'selected-overlay' : isHovered ? 'hovered-overlay' : ''
+            }`}
         />
       )}
       {(isHovered || isSelected) && (
@@ -53,7 +51,7 @@ function ImageCard({ image, isSelected, onImageSelect, onReorder, index }) {
       <img
         src={image.url}
         alt={`img ${image.id}`}
-        className="object-cover-fit w-full h-full"
+        className="object-cover-fit w-full  flex items-center"
       />
     </div>
   );
