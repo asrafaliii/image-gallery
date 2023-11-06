@@ -9,8 +9,6 @@ function Header({ selectedImages, handleDelete }) {
             type="checkbox"
             defaultChecked={true}
             className=" sm:w-5 sm:h-5 "
-          // checked={isSelected}
-          // onChange={handleCheckboxChange}
           />
           : ''}</span>
         {selectedImages.length > 0
