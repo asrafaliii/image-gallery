@@ -25,7 +25,7 @@ function ImageCard({ image, isSelected, onImageSelect, onReorder, index }) {
   };
   return (
     <div
-      className={`relative border-2 rounded-xl border-gray-300 group md:flex flex justify-center overflow-hidden cursor-pointer ${index === 0 ? 'h-[25rem]' : 'h-48'
+      className={`relative border-2 rounded-xl border-gray-300 group md:flex  justify-center overflow-hidden cursor-pointer ${index === 0 ? 'h-[25rem]' : 'h-48'
         }`}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
@@ -36,14 +36,14 @@ function ImageCard({ image, isSelected, onImageSelect, onReorder, index }) {
     >
       {(isHovered || isSelected) && (
         <div
-          className={`md:absolute inset-0 ${isSelected ? 'selected-overlay' : isHovered ? 'hovered-overlay' : ''
+          className={`md:absolute absolute  inset-0 ${isSelected ? 'selected-overlay' : isHovered ? 'hovered-overlay' : ''
             }`}
         />
       )}
       {(isHovered || isSelected) && (
         <input
           type="checkbox"
-          className="md:absolute top-2 left-2 mt-2 ml-5 sm:w-5 sm:h-5 cursor-pointer"
+          className="md:absolute absolute  top-2 left-2 mt-2 ml-5 sm:w-5 sm:h-5 cursor-pointer"
           checked={isSelected}
           onChange={handleCheckboxChange}
         />
@@ -51,7 +51,7 @@ function ImageCard({ image, isSelected, onImageSelect, onReorder, index }) {
       <img
         src={image.url}
         alt={`img ${image.id}`}
-        className="object-cover-fit w-full  flex items-center"
+        className="object-cover-fit w-full h-full  flex items-center"
       />
     </div>
   );
